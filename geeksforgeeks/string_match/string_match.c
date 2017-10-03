@@ -17,22 +17,19 @@ void
 search(char path[],char txt[]) {
 
 int i, j=0;
-int n, m, count=0;
+int n, m;
 
 n = strlen(txt);
 m = strlen(path);
 
-printf("Length of txt is %d", n);
-
-for(i=0; i < (n-m); i ++) {
+for(i=0; i <= (n-m); i ++) {
 	for(j=0; j < m; j++) {
-		if(txt[i] == path[j]) {
-			count++;
-		if(count == m) {
-			printf("Match found at index %d\n", i);
-			count = 0;
-		}
-		}
+		if(txt[i+j] != path[j])
+			break;
 	}
+	if(j == m) {
+		printf("Match found at index %d\n", i);
+	}
+		
 }
 }
